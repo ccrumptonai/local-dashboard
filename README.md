@@ -4,7 +4,7 @@ A clean, **local-first** personal start page: clock, weather, to-do list, quick
 links, and a notes scratchpad — all driven by a single editable JSON config and
 stored entirely in your browser. **No accounts, no backend, no tracking.**
 
-<!-- TODO: add a demo GIF here, e.g. ![demo](docs/demo.gif) -->
+![Local Dashboard — clock, weather, to-do, links, and notes widgets](docs/demo.png)
 
 ## ✨ Features
 
