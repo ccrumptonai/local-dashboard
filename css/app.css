@@ -1,0 +1,110 @@
+:root {
+  --bg: #0f1117;
+  --card: #181b23;
+  --border: #272b36;
+  --text: #e6e8ee;
+  --text-dim: #9aa1b1;
+  --accent: #6c8cff;
+  --radius: 12px;
+}
+body[data-theme="light"] {
+  --bg: #f4f5f8;
+  --card: #ffffff;
+  --border: #e2e5ec;
+  --text: #1c2030;
+  --text-dim: #6b7180;
+  --accent: #3b5bdb;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg); color: var(--text);
+  transition: background 0.2s, color 0.2s;
+}
+
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.5rem; max-width: 1100px; margin: 0 auto;
+}
+.title { font-size: 1.3rem; margin: 0; }
+.actions { display: flex; gap: 0.5rem; }
+
+.btn {
+  background: var(--accent); color: #fff; border: none;
+  border-radius: 8px; padding: 0.45rem 0.8rem; font: inherit;
+  font-size: 0.9rem; cursor: pointer; transition: filter 0.12s;
+}
+.btn:hover { filter: brightness(1.1); }
+.btn-ghost { background: transparent; color: var(--text-dim); border: 1px solid var(--border); }
+
+.grid {
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  padding: 0 1.5rem 2rem; max-width: 1100px; margin: 0 auto;
+}
+
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.1rem 1.2rem;
+  display: flex; flex-direction: column; min-height: 120px;
+}
+.card h3 {
+  margin: 0 0 0.8rem; font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-dim);
+}
+
+/* Clock */
+.clock-time { font-size: 2.6rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; }
+.clock-date { color: var(--text-dim); margin-top: 0.4rem; }
+
+/* Weather */
+.weather-main { display: flex; align-items: center; gap: 0.8rem; }
+.weather-icon { font-size: 2.6rem; }
+.weather-temp { font-size: 2.2rem; font-weight: 700; }
+.weather-desc { color: var(--text-dim); margin-top: 0.4rem; }
+.weather-meta { color: var(--text-dim); font-size: 0.85rem; margin-top: 0.3rem; }
+
+/* Todos */
+.todo-input { width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 0.5rem 0.6rem; font: inherit; margin-bottom: 0.6rem; }
+.todo-list { list-style: none; margin: 0; padding: 0; overflow: auto; }
+.todo-item { display: flex; align-items: center; gap: 0.55rem; padding: 0.3rem 0; }
+.todo-item input { accent-color: var(--accent); cursor: pointer; }
+.todo-item span { flex: 1; }
+.todo-item.done span { text-decoration: line-through; color: var(--text-dim); }
+.todo-del { background: none; border: none; color: var(--text-dim); cursor: pointer; font-size: 1rem; opacity: 0.6; }
+.todo-del:hover { opacity: 1; color: #e5484d; }
+
+/* Links */
+.links-list { list-style: none; margin: 0; padding: 0; }
+.links-list li { margin: 0.2rem 0; }
+.links-list a { color: var(--accent); text-decoration: none; }
+.links-list a:hover { text-decoration: underline; }
+
+/* Notes */
+.notes-area { flex: 1; width: 100%; min-height: 120px; resize: vertical; background: var(--bg); border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 0.6rem; font: inherit; }
+
+.muted { color: var(--text-dim); font-size: 0.9rem; }
+
+/* Drawer */
+.drawer {
+  position: fixed; top: 0; right: 0; height: 100%; width: min(440px, 92vw);
+  background: var(--card); border-left: 1px solid var(--border);
+  padding: 1.25rem; z-index: 50; display: flex; flex-direction: column;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+}
+.drawer[hidden] { display: none; }
+.drawer-head { display: flex; align-items: center; justify-content: space-between; }
+.drawer-head h2 { margin: 0; font-size: 1.1rem; }
+.hint { color: var(--text-dim); font-size: 0.85rem; }
+#config-text {
+  flex: 1; width: 100%; min-height: 240px; resize: none;
+  background: var(--bg); border: 1px solid var(--border); color: var(--text);
+  border-radius: 8px; padding: 0.7rem; font-family: Consolas, monospace; font-size: 0.85rem;
+}
+.config-error { color: #e5484d; font-size: 0.85rem; margin: 0.5rem 0; }
+.config-error[hidden] { display: none; }
+.drawer-actions { display: flex; gap: 0.5rem; margin-top: 0.8rem; flex-wrap: wrap; }
+.scrim { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 40; }
+.scrim[hidden] { display: none; }

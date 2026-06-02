@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <meta name="description" content="A local-first personal dashboard: clock, weather, todos, links, and notes. Configured from one JSON file, stored in your browser." />
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body data-theme="dark">
+  <header class="topbar">
+    <h1 class="title">🏠 Dashboard</h1>
+    <div class="actions">
+      <button id="btn-theme" class="btn btn-ghost" title="Toggle light/dark">🌗</button>
+      <button id="btn-config" class="btn">⚙ Config</button>
+    </div>
+  </header>
+
+  <main id="grid" class="grid"><!-- widgets rendered here --></main>
+
+  <!-- Config drawer -->
+  <aside id="drawer" class="drawer" hidden>
+    <div class="drawer-head">
+      <h2>Configuration</h2>
+      <button id="drawer-close" class="btn btn-ghost">✕</button>
+    </div>
+    <p class="hint">Edit the JSON below and click <strong>Apply</strong>. Everything is stored locally in your browser.</p>
+    <textarea id="config-text" spellcheck="false"></textarea>
+    <div id="config-error" class="config-error" hidden></div>
+    <div class="drawer-actions">
+      <button id="config-apply" class="btn">Apply</button>
+      <button id="config-export" class="btn btn-ghost">Export</button>
+      <button id="config-import" class="btn btn-ghost">Import</button>
+      <button id="config-reset" class="btn btn-ghost">Reset</button>
+      <input id="config-file" type="file" accept="application/json" hidden />
+    </div>
+  </aside>
+  <div id="scrim" class="scrim" hidden></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/widgets.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
